@@ -1,15 +1,14 @@
-function Header({ cartCount }) {
- return (
- <header className="header">
- <h1 className="logo">CampusEats</h1>
- <nav className="nav">
- <a href="#">Vendors</a>
- <a href="#">My Orders</a>
- <a href="#" className="cart">
- Cart <span className="badge">{cartCount}</span>
- </a>
- </nav>
- </header>
- )
+function Header({ cartCount, onShowMenu, onShowCart }) {
+  return (
+    <header className="header">
+      <div className="logo">CampusEats</div>
+      <nav>
+        <button onClick={onShowMenu}>Vendors</button>
+        <button onClick={onShowCart}>
+          Cart <span className="badge">{cartCount}</span>
+        </button>
+      </nav>
+    </header>
+  );
 }
-export default Header
+export default Header;
