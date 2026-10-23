@@ -18,3 +18,4 @@ If you are developing a production application, we recommend using TypeScript wi
 ## Vendors credits
 
 Vendor 2: Nurul Iman binti Idris (2414362)
+Vendor 3: Muhammad Amirul Izzat Mahidzar (2320619)

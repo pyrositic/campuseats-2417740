@@ -143,6 +143,7 @@
       }
     ]
   },
+
   {
     "id": "2414362-Ruang-Cafe",
     "name": "Ruang Café",
@@ -253,6 +254,65 @@
         "price": 10.0,
         "category": "Sweet Treats",
         "available": true
+      }
+    ]
+  },
+
+  {
+    "id": "2320619-roticanai-ahmad",
+    "name": "Roti canai Ahmad",
+    "location": "Mahallah Ali, Block D",
+    "openHours": "7:00 AM - 10:00 PM",
+    "isOpen": true,
+    "menu": [
+      {
+        "id": "2320619-m1",
+        "name": "Roti Kosong",
+        "price": 1.2,
+        "category": "Roti Canai",
+        "popular": true
+      },
+      {
+        "id": "2320619-m2",
+        "name": "Roti Telur",
+        "price": 1.5,
+        "category": "Roti Canai",
+        "popular": true
+      },
+      {
+        "id": "2320619-m3",
+        "name": "Roti Bawang",
+        "price": 1.8,
+        "category": "Roti Canai",
+        "popular": false
+      },
+      {
+        "id": "2320619-m4",
+        "name": "Roti Planta",
+        "price": 2.0,
+        "category": "Roti Canai",
+        "popular": false
+      },
+      {
+        "id": "2320619-m5",
+        "name": "Naan Cheese",
+        "price": 2.5,
+        "category": "Naan Tandoori",
+        "popular": true
+      },
+      {
+        "id": "2320619-m6",
+        "name": "Naan Garlic",
+        "price": 2.0,
+        "category": "Naan Tandoori",
+        "popular": false
+      },
+      {
+        "id": "2320619-m7",
+        "name": "Naan Butter",
+        "price": 1.8,
+        "category": "Naan Tandoori",
+        "popular": false
       }
     ]
   }
