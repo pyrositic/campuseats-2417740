@@ -1,14 +1,23 @@
-function Header({ cartCount, onShowMenu, onShowCart }) {
+import { NavLink } from "react-router";
+import { useCart } from "../hooks/useCart.js";
+
+function Header() {
+  const { count } = useCart();
+
   return (
     <header className="header">
-      <div className="logo">CampusEats</div>
-      <nav>
-        <button onClick={onShowMenu}>Vendors</button>
-        <button onClick={onShowCart}>
-          Cart <span className="badge">{cartCount}</span>
-        </button>
+      <h1 className="logo">CampusEats</h1>
+      <nav className="nav">
+        <NavLink to="/" end>
+          Vendors
+        </NavLink>
+        <NavLink to="/orders">My Orders</NavLink>
+        <NavLink to="/cart">
+          Cart <span className="badge">{count}</span>
+        </NavLink>
       </nav>
     </header>
   );
 }
+
 export default Header;

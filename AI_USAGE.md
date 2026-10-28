@@ -68,8 +68,7 @@ Add a new section every week, before you tag. Did not use AI? Write "None" under
 
 ## Week 3
 
-## Week 3
-- Tool(s): Claude (claude.ai chat); react.dev/learn (official React docs)
+- Tool(s): Claude Sonnet 5.5 (Medium); react.dev/learn (official React docs)
 - What I asked for:
   - How to do B2: fetching vendors in useEffect with loading, error and
     vendors state, a res.ok check, an AbortController cleanup, a reloadKey
@@ -108,3 +107,40 @@ Add a new section every week, before you tag. Did not use AI? Write "None" under
   (B7 and the checkpoint rubric) requires the week-3 tag, so I compared
   its advice with the sheet, ran git tag week-3 and git push origin week-3,
   and will keep the tag.
+
+## Week 4
+
+- Tool(s): Claude Sonnet 5.5 (Medium); react.dev/learn and the React Router docs
+- What I asked for:
+  - How to write the useLocalStorage custom hook (with try/catch around
+    JSON.parse and setItem) and understanding the code-along version.
+  - How to move my fetch, loading, error and reload logic out of App into
+    a useVendors hook that returns { vendors, loading, error, reload }.
+  - How to build the cart context (cart-context.js, CartProvider.jsx,
+    useCart.js) and remove the cart props from Header, MenuList and the
+    cart page.
+  - How to build the pages and routes (HomePage, VendorPage with
+    useParams, CartPage with useNavigate, OrdersPage, NotFoundPage),
+    a Layout with Outlet, NavLink in the header and Link in VendorCard.
+  - Fixing a Vite "Failed to resolve import" error for OrdersPage.jsx and
+    a white page after adding the router.
+  - B6 (matric digit 0): keeping the menu search text in the URL (?q=)
+    with useSearchParams.
+- What I kept, changed or rejected, and why:
+  - Studied: the custom hooks, context and React Router pages, then read
+    each hook and page line by line so I could explain it.
+  - Kept: the cart logic from Week 3. It only moved into CartProvider, and
+    count and total are still derived with reduce, not stored.
+  - Kept: the search filter from Week 3 (derived, case-insensitive). Only
+    the source of the text changed, from useState to useSearchParams.
+  - Changed: I used { replace: true } in setSearchParams so each keystroke
+    does not add a browser history entry, and Back leaves the page instead.
+  - Changed: I put BrowserRouter and CartProvider inside App.jsx, to match
+    the lab's route table, instead of in main.jsx.
+  - Changed: I deleted the old Cart.jsx and the view/lastOrder state in
+    App, because the URL and the orders list replaced them.
+- One thing the AI got wrong and how I fixed it: The AI told me to wrap
+  the app in BrowserRouter inside main.jsx, but the lab's route table
+  has BrowserRouter and CartProvider inside App.jsx. Having both gave a
+  white page. I compared the AI's code with the lab sheet's route table,
+  moved the providers into App.jsx, and left main.jsx with only <App />.
