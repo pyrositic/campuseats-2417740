@@ -41,7 +41,9 @@ export default function VendorPage() {
 
   return (
     <section>
-      <Link to="/">← All vendors</Link>
+      <Link to="/" className="back-link">
+        ← All vendors
+      </Link>
       <h2 className="section-title">Menu: {vendor.name}</h2>
       <input
         type="search"

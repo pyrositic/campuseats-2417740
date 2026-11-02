@@ -2,6 +2,7 @@
 
 Using AI never costs marks; a vague or missing log does.
 Add a new section every week, before you tag. Did not use AI? Write "None" under Tool(s).
+-- My AI usage log is made by the same AI model to summarize the whole chat
 
 ## Week 1
 
@@ -126,6 +127,16 @@ Add a new section every week, before you tag. Did not use AI? Write "None" under
     a white page after adding the router.
   - B6 (matric digit 0): keeping the menu search text in the URL (?q=)
     with useSearchParams.
+  - CSS styling (optional, not part of the lab):
+    - A colourful pastel "kidscore" theme: a warm cream background, a
+      coral-to-purple gradient header, rounded Baloo 2 and Nunito fonts
+      (linked in index.html), and a different colour on each card.
+    - Hover effects: cards lift and scale up on hover, buttons press down
+      when clicked, and the nav links and quantity buttons grow slightly.
+    - A merged version of index.css, so I could replace the whole file
+      instead of pasting a block on the end.
+    - A styled "All vendors" back link (a pill-shaped button that slides
+      left on hover), using a new back-link class.
 - What I kept, changed or rejected, and why:
   - Studied: the custom hooks, context and React Router pages, then read
     each hook and page line by line so I could explain it.
@@ -139,6 +150,16 @@ Add a new section every week, before you tag. Did not use AI? Write "None" under
     the lab's route table, instead of in main.jsx.
   - Changed: I deleted the old Cart.jsx and the view/lastOrder state in
     App, because the URL and the orders list replaced them.
+  - Changed: I replaced the starter index.css with the merged themed
+    version. The starter says I do not need to write CSS, but it does not
+    forbid changing it, and styling is not assessed.
+  - Kept: every class name from the starter CSS (card, btn, cart-line,
+    vendor-grid and so on), so the components still work without edits.
+  - Changed: I added className="back-link" to the "All vendors" link in
+    VendorPage and wrote the .back-link rules at the end of index.css.
+    No component logic changed.
+  - Checked: the new CSS keeps a prefers-reduced-motion rule, so the hover
+    animations turn off for people who disable animations.
 - One thing the AI got wrong and how I fixed it: The AI told me to wrap
   the app in BrowserRouter inside main.jsx, but the lab's route table
   has BrowserRouter and CartProvider inside App.jsx. Having both gave a

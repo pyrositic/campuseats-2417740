@@ -28,29 +28,32 @@ function validate(values) {
   return errors;
 }
 
-function CheckoutForm({ onPlaceOrder }) {
+function CheckoutForm({ onPlaceOrder }) { //component can give CheckoutFOrm a function
   const [values, setValues] = useState({
     name: "",
     mahallah: "",
-    pickupTime: "",
+    pickupTime: "", //these are all the things inside the values state. sent to validate function
   });
-  const [errors, setErrors] = useState({});
-
+  const [errors, setErrors] = useState({}); //what went wrong during validation
+ 
   // One handler for every input: the input's name matches a key in values.
   function handleChange(event) {
-    const { name, value } = event.target;
-    setValues((prev) => ({ ...prev, [name]: value }));
-  }
+    const { name, value } = event.target; //name is which input berubah and value is what it entered
+    setValues((prev) => ({ ...prev, [name]: value })); //dia letak const before this as prev and then update yg baru
+  } //setValues from checkoutform function
 
+  //runs when form is submitted
   function handleSubmit(event) {
     event.preventDefault(); // stop the page reloading
     const found = validate(values);
-    setErrors(found);
-    if (Object.keys(found).length === 0) {
+    setErrors(found); //cause component to rerender and allow it to appear on screen
+    if (Object.keys(found).length === 0) { //if ada error, dia akan kira []. if ada error +1, if none then 0
       onPlaceOrder(values);
     }
   }
 
+
+  //part that actually appears on screen
   return (
     <form className="card form" onSubmit={handleSubmit} noValidate>
       <h3>Checkout</h3>
@@ -59,7 +62,7 @@ function CheckoutForm({ onPlaceOrder }) {
       <input
         id="name"
         name="name"
-        value={values.name}
+        value={values.name} //get current value from state
         onChange={handleChange}
       />
       {errors.name && <p className="field-error">{errors.name}</p>}

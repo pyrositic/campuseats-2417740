@@ -13,3 +13,6 @@ it returns multiple elements from the component without adding extra element to 
 
 4. Name one benefit of splitting the UI into small components.
 You can reuse the components in other places
+
+
+

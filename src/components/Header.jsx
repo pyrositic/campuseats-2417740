@@ -6,7 +6,7 @@ function Header() {
 
   return (
     <header className="header">
-      <h1 className="logo">CampusEats</h1>
+      <h1 className="logo">🍜 CampusEats</h1>
       <nav className="nav">
         <NavLink to="/" end>
           Vendors
