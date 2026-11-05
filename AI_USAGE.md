@@ -2,7 +2,7 @@
 
 Using AI never costs marks; a vague or missing log does.
 Add a new section every week, before you tag. Did not use AI? Write "None" under Tool(s).
--- My AI usage log is made by the same AI model to summarize the whole chat
+***My AI usage log is made by the same AI model to summarize the whole chat since it is long for the week***
 
 ## Week 1
 
@@ -165,3 +165,22 @@ Add a new section every week, before you tag. Did not use AI? Write "None" under
   has BrowserRouter and CartProvider inside App.jsx. Having both gave a
   white page. I compared the AI's code with the lab sheet's route table,
   moved the providers into App.jsx, and left main.jsx with only <App />.
+
+  ## Week 5 & Milestone 1 Report
+
+- Tool(s): Gemini
+- What I asked for:
+  - Conceptual guidance and revision for the 60-minute practical exam, in depth study of the campuseat code, breaking down standard parent-child data flow, controlled form inputs, and Context/routing blueprints.
+  - Checking and verifying my component tree hierarchy (Section 2.1) to confirm the Layout renders.
+  - Verifying and clarifying the state audit table (Section 2.2) to determine exact state ownership, distinguishing between actual React state (cart, orders, values) versus URL parameters and derived values.
+  - Step-by-step tracing and verification of the "Place Order" workflow (Section 2.3) from form submit in CheckoutForm, lifting state to CartPage, through useCart and CartProvider, to localStorage and UI updates.
+  - Defining clear, realistic test cases for Section 4.1 ("What I checked"), including deep-linking, refresh persistence, checkout form validation, and 404 routing.
+- What I kept, changed or rejected, and why:
+  - Kept: the verified component tree structure showing Layout hosting Header, Footer, and Outlet, with reused components properly noted.
+  - Kept: the 6-step traced action for placing an order because it correctly represents my actual implementation without missing intermediate hooks.
+  - Kept: the testing table scenarios for Section 4.1, confirming that each check corresponds directly to expected behavior.
+  - Changed: rejected the AI's overly long state audit table that listed derived values and internal hook triggers as separate state rows; simplified Table 2.2 to focus strictly on real state variables matching the report prompt.
+  - Changed: fixed the broken code excerpt formatting in Section 3 and added missing state values that were flagged during the report review.
+- One thing the AI got wrong and how I fixed it:
+  - The AI initially suggested an over-complicated state table that treated derived calculations (count, total) and URL parameters (id, q) as standard state rows. I corrected this by keeping only genuine state variables in the main table and documenting URL route parameters and derived calculations separately as notes.
+

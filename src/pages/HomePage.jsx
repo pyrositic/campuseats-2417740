@@ -18,5 +18,5 @@ export default function HomePage() {
         ))}
       </div>
     </section>
-  );
+  ); //take vendors from useVendors hook, map each vendor to a VendorCard component
 }

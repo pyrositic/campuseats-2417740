@@ -11,13 +11,13 @@ export default function CartProvider({ children }) {
 
   function addToCart(item) {
     setCart((prev) => {
-      const existing = prev.find((line) => line.item.id === item.id);
+      const existing = prev.find((line) => line.item.id === item.id); //check if sama item ke
       if (existing) {
         return prev.map((line) =>
-          line.item.id === item.id ? { ...line, qty: line.qty + 1 } : line,
+          line.item.id === item.id ? { ...line, qty: line.qty + 1 } : line, //add the qty
         );
       }
-      return [...prev, { item, qty: 1 }];
+      return [...prev, { item, qty: 1 }]; //if not the same item, add new line to cart
     });
   }
 
@@ -60,4 +60,5 @@ export default function CartProvider({ children }) {
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+  //give all cart data and functions to all children components that are wrapped in this provider
 }

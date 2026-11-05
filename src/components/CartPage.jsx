@@ -1,3 +1,5 @@
+//THIS ONE IS THE OLD ONE 
+
 import CartItem from "./CartItem.jsx";
 import CheckoutForm from "./CheckoutForm.jsx";
 function CartPage({ cart, onChangeQty, onRemove, onPlaceOrder }) {

@@ -1,3 +1,6 @@
+// useCart is just a convenient, safe bridge that lets any component grab cart data
+// with one line of code instead of writing useContext(CartContext) every time.
+
 import { useContext } from "react";
 import { CartContext } from "../context/cart-context.js";
 

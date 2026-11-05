@@ -9,13 +9,13 @@ export default function VendorPage() {
   const { vendors, loading, error, reload } = useVendors();
 
   // The search text lives in the URL (?q=...), not in useState.
-  // Hooks must stay above the early returns below.
+  // Hooks kena stay above the early returns below.
   const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get("q") ?? "";
+  const query = searchParams.get("q") ?? ""; // tengok kat url ?q=___
 
   function handleSearch(e) {
     const value = e.target.value;
-    // empty box -> remove ?q= completely; replace avoids one history entry per keystroke
+    // empty box -> remove ?q= completely. replace avoids one history entry per keystroke
     setSearchParams(value ? { q: value } : {}, { replace: true });
   }
 

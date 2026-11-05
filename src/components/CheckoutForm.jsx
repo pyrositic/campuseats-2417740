@@ -13,7 +13,8 @@ const MAHALLAHS = [
 
 // A plain function: values in, errors object out. Empty object = valid.
 function validate(values) {
-  const errors = {};
+  // empty box where we collect errors
+  const errors = {}; //creating empty object. if ada error, then it will add key (cth: name) and value (cth: Enter your name (at least 3 characters).)
   if (values.name.trim().length < 3) {
     errors.name = "Enter your name (at least 3 characters).";
   }
@@ -27,20 +28,24 @@ function validate(values) {
   }
   return errors;
 }
+//have error here bcs: temporary (object), collect validation result, used only by validate, no re render
+
 
 function CheckoutForm({ onPlaceOrder }) { //component can give CheckoutFOrm a function
   const [values, setValues] = useState({
     name: "",
     mahallah: "",
-    pickupTime: "", //these are all the things inside the values state. sent to validate function
-  });
-  const [errors, setErrors] = useState({}); //what went wrong during validation
- 
+    pickupTime: "", //these are all objects inside the values state. sent to validate function
+  }); //then we can see it as values.name etc
+  const [errors, setErrors] = useState({}); 
+// ada another error state here bcs: a state, remember validation result, re render, display the error
+
+  // both these are funcction within checkout form.
   // One handler for every input: the input's name matches a key in values.
   function handleChange(event) {
     const { name, value } = event.target; //name is which input berubah and value is what it entered
     setValues((prev) => ({ ...prev, [name]: value })); //dia letak const before this as prev and then update yg baru
-  } //setValues from checkoutform function
+  } //prev is react thing.
 
   //runs when form is submitted
   function handleSubmit(event) {
@@ -62,7 +67,7 @@ function CheckoutForm({ onPlaceOrder }) { //component can give CheckoutFOrm a fu
       <input
         id="name"
         name="name"
-        value={values.name} //get current value from state
+        value={values.name} 
         onChange={handleChange}
       />
       {errors.name && <p className="field-error">{errors.name}</p>}
