@@ -2,7 +2,7 @@
 
 Using AI never costs marks; a vague or missing log does.
 Add a new section every week, before you tag. Did not use AI? Write "None" under Tool(s).
-***My AI usage log is made by the same AI model to summarize the whole chat since it is long for the week***
+**_My AI usage log is made by the same AI model to summarize the whole chat since it is long for the week_**
 
 ## Week 1
 
@@ -184,3 +184,64 @@ Add a new section every week, before you tag. Did not use AI? Write "None" under
 - One thing the AI got wrong and how I fixed it:
   - The AI initially suggested an over-complicated state table that treated derived calculations (count, total) and URL parameters (id, q) as standard state rows. I corrected this by keeping only genuine state variables in the main table and documenting URL route parameters and derived calculations separately as notes.
 
+## Week 5
+
+- Tool(s): Claude Sonnet 5.5 (Medium); Firebase Authentication docs
+- What I asked for:
+  - Converting the Firebase config object into .env.local variables with
+    the VITE\_ prefix, so the names match import.meta.env in firebase.js.
+  - Finishing the TODOs in AuthProvider.jsx (login with
+    signInWithEmailAndPassword, logout with signOut).
+  - Whether anything should be added to authErrors.js, and what "type it
+    in full" means for firebase.js, auth-context.js and useAuth.js.
+  - Where to find the Firebase appId, and how to set up .env.local for
+    CampusEats, which is a different folder from the code-along.
+  - Finishing LoginPage.jsx (TODO 3 and 4: await login or
+    loginWithGoogle, then navigate to goTo with replace).
+  - Building RegisterPage.jsx from LoginPage, and checking ProtectedRoute,
+    the new route tree in App.jsx and the Header changes (user name and
+    Log out button).
+  - B6 (matric digit 0): keeping the last 5 searches per user as quick
+    buttons under the search box (newest first, no duplicates, max 5,
+    stored under ce-searches-<uid>).
+  - Debugging a blank screen after adding Firebase and the new routes.
+- What I kept, changed or rejected, and why:
+  - Kept: the VITE*FIREBASE*\* names, because Vite only exposes variables
+    that start with VITE\_. I added VITE_FIREBASE_STORAGE_BUCKET and
+    VITE_FIREBASE_MESSAGING_SENDER_ID because the lab's firebase.js reads
+    them, and created a new .env.local inside the campuseats folder.
+  - Kept: login and logout as one-line returns, with no setUser call,
+    because onAuthStateChanged already updates the user (listen, don't ask).
+  - Kept: most of the extra error codes in authErrors.js, and I use
+    optional chaining (error?.code) so a non-Firebase error cannot crash it.
+  - Changed: ProtectedRoute imports my default-export Loading.jsx instead
+    of { Loading } from Status.jsx, because my project has no Status.jsx
+    export. It also passes state={{ from: location.pathname }} so the
+    login page can send me back to the page I wanted.
+  - Changed: Header got NavLink, user name and Log out button added to my
+    Week 4 header.
+  - Kept: the search feature design. A search is saved when I press Enter,
+    not on every keystroke, so the list does not fill with "n", "na", "nas".
+  - Changed: the recent searches live in a new SearchBox component, and
+    VendorPage gives it key={user?.uid ?? "guest"}. useLocalStorage reads
+    its key only once, so without the key a guest's list could overwrite
+    the real user's list while Firebase is still loading.
+  - Checked: for the blank screen, I first ruled out .env.local by
+    printing import.meta.env.VITE_FIREBASE_PROJECT_ID in firebase.js (it
+    printed my project id), then removed the log. The console error
+    "App is not defined" at App.jsx line 35 showed that the function App
+    wrapper was missing when I pasted the new route tree, so
+    export default App had nothing to export. I restored function App()
+    around the BrowserRouter block and the page loaded.
+  - Checked: that .env.local is not pushed to GitHub (git status), that I
+    restarted npm run dev after editing it, and that Email/Password and
+    Google sign-in are enabled in the Firebase console.
+- One thing the AI got wrong and how I fixed it: My pasted lab code lost
+  its JSX tags and the <uid> part of the storage key, so the AI rebuilt
+  them by guessing. I compared its version with the lab sheet and fixed
+  the differences, such as the key name and the Loading import. The AI
+  also first gave me an .env.local without the storage bucket and
+  messaging sender id, which the lab's firebase.js needs, and I added them.
+  For the blank screen, the AI's first guess was .env.local problems, but
+  the real cause was the missing function App wrapper. I found it by
+  reading the console error instead of trusting the guess.

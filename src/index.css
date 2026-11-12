@@ -600,3 +600,11 @@ a.card:hover,
   transform: translateX(-4px) translateY(2px);
   box-shadow: 0 1px 0 #c4483c;
 }
+
+.recent { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem; }
+.chip {
+  border: 2px solid #ffd9a0; background: #fff; color: #3a2e39;
+  border-radius: 999px; padding: 0.2rem 0.8rem; font: inherit; font-size: 0.85rem;
+  font-weight: 700; cursor: pointer; transition: transform 0.15s, background 0.15s;
+}
+.chip:hover { background: #ffd9a0; transform: translateY(-2px) scale(1.05); }
